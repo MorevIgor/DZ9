@@ -69,99 +69,99 @@ public class RadioTest {
     }
 
     @Test
-    public void reduceRadioStation(){//переключение станции в пределах -1
-        Radio radio= new Radio();
+    public void reduceRadioStation() {//переключение станции в пределах -1
+        Radio radio = new Radio();
 
-        radio.setCurrentRadioStation(9,"prev");
+        radio.setCurrentRadioStation(9, "prev");
 
         int expected = 8;
         int actual = radio.getCurrentRadioStation();
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void setRadioStation(){// установка номера станции
-        Radio radio= new Radio();
+    public void setRadioStation() {// установка номера станции
+        Radio radio = new Radio();
 
-        radio.setCurrentRadioStation(5,null);
+        radio.setCurrentRadioStation(5, null);
 
         int expected = 5;
         int actual = radio.getCurrentRadioStation();
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void correctMaxParametrsRadioVolume(){//уровень громкочти за пределами(верх предел)
-        Radio radio= new Radio();
+    public void correctMaxParametrsRadioVolume() {//уровень громкочти за пределами(верх предел)
+        Radio radio = new Radio();
 
-        radio.setCurrentRadioVolume(11,null);
+        radio.setCurrentRadioVolume(11, null);
 
         int expected = 0;
         int actual = radio.getCurrentRadioVolume();
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void correctMinParametrsRadioVolume(){ //уровень громкости за пределами(нижн предел)
-        Radio radio= new Radio();
+    public void correctMinParametrsRadioVolume() { //уровень громкости за пределами(нижн предел)
+        Radio radio = new Radio();
 
-        radio.setCurrentRadioVolume(-1,null);
+        radio.setCurrentRadioVolume(-1, null);
 
         int expected = 0;
-        int actual= radio.getCurrentRadioVolume();
+        int actual = radio.getCurrentRadioVolume();
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void increaseRadioVolume(){// повышение уровня громкости в пределах +1
-        Radio radio=new Radio();
+    public void increaseRadioVolume() {// повышение уровня громкости в пределах +1
+        Radio radio = new Radio();
 
-        radio.setCurrentRadioVolume(0,"+");
+        radio.setCurrentRadioVolume(0, "+");
 
-        int expected=1;
-        int actual= radio.getCurrentRadioVolume();
+        int expected = 1;
+        int actual = radio.getCurrentRadioVolume();
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void increaseOverRadioVolume(){// повышение уровня громкости за пределами +1
-        Radio radio=new Radio();
+    public void increaseOverRadioVolume() {// повышение уровня громкости за пределами +1
+        Radio radio = new Radio();
 
-        radio.setCurrentRadioVolume(10,"+");
+        radio.setCurrentRadioVolume(10, "+");
 
-        int expected=10;
-        int actual= radio.getCurrentRadioVolume();
+        int expected = 10;
+        int actual = radio.getCurrentRadioVolume();
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void reduceRadioVolume(){// уменьшение уровня громкости в пределах -1
-        Radio radio=new Radio();
+    public void reduceRadioVolume() {// уменьшение уровня громкости в пределах -1
+        Radio radio = new Radio();
 
-        radio.setCurrentRadioVolume(10,"-");
+        radio.setCurrentRadioVolume(10, "-");
 
-        int expected=9;
-        int actual= radio.getCurrentRadioVolume();
+        int expected = 9;
+        int actual = radio.getCurrentRadioVolume();
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void reduceOverRadioVolume(){// уменьшение уровня громкости за пределами -1
-        Radio radio= new Radio();
+    public void reduceOverRadioVolume() {// уменьшение уровня громкости за пределами -1
+        Radio radio = new Radio();
 
-        radio.setCurrentRadioVolume(0,"-");
+        radio.setCurrentRadioVolume(0, "-");
 
-        int expected=0;
-        int actual= radio.getCurrentRadioVolume();
+        int expected = 0;
+        int actual = radio.getCurrentRadioVolume();
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
 

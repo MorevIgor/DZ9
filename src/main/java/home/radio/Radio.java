@@ -47,13 +47,13 @@ public class Radio {
         }
         currentRadioVolume = newCurrentRadioVolume;
 
-        if (buttonVolume == "+"){
+        if (buttonVolume == "+") {
             if (currentRadioVolume < 10) {
                 currentRadioVolume = currentRadioVolume + 1;
             }
         }
 
-        if (buttonVolume == "-"){
+        if (buttonVolume == "-") {
             if (currentRadioVolume > 0) {
                 currentRadioVolume = currentRadioVolume - 1;
             }
