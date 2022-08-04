@@ -3,63 +3,111 @@ package home.radio;
 public class Radio {
     int currentRadioStation;
     int currentRadioVolume;
+    int radioStation = 10;
+    int maxRadioStation;
+    private int minRadioStation = 0;
+    private int maxRadioVolume = 100;
+    private int minRadioVolume = 0;
+    private String button;
+
+
+    public Radio(String button, int radioStation, int currentRadioStation, int currentRadioVolume) {
+
+        this.button = button;
+        this.minRadioStation = minRadioStation;
+        this.radioStation = radioStation;
+        maxRadioStation = radioStation - 1;
+        if (currentRadioStation > maxRadioStation) {   // проверка на корректность данных
+            return;
+        }
+        if (currentRadioStation < minRadioStation) {   // проверка на корректность данных
+            return;
+        }
+        if (button == "next") {
+            if (currentRadioStation == maxRadioStation) {
+                currentRadioStation = currentRadioStation - currentRadioStation;
+            } else currentRadioStation = currentRadioStation + 1;
+        }
+        if (button == "prev") {
+            if (currentRadioStation == minRadioStation) {
+                currentRadioStation = maxRadioStation;
+            } else currentRadioStation = currentRadioStation - 1;
+        }
+
+        if (currentRadioVolume > maxRadioVolume) {
+            return;
+        }
+        if (currentRadioVolume < minRadioVolume) {
+            return;
+        }
+        if (button == "+") {
+            if (currentRadioVolume < maxRadioVolume) {
+                currentRadioVolume = currentRadioVolume + 1;
+            }
+        }
+
+        if (button == "-") {
+            if (currentRadioVolume > minRadioVolume) {
+                currentRadioVolume = currentRadioVolume - 1;
+            }
+        }
+        this.currentRadioStation = currentRadioStation;
+        this.currentRadioVolume = currentRadioVolume;
+
+    }
+
+
+    public Radio(String button, int currentRadioStation, int currentRadioVolume) {
+
+        this.button = button;
+        this.minRadioStation = minRadioStation;
+        this.radioStation = radioStation;
+        maxRadioStation = radioStation - 1;
+        if (currentRadioStation > maxRadioStation) {
+            return;
+        }
+        if (currentRadioStation < minRadioStation) {
+            return;
+        }
+        if (button == "next") {
+            if (currentRadioStation == maxRadioStation) {
+                currentRadioStation = currentRadioStation - currentRadioStation;
+            } else currentRadioStation = currentRadioStation + 1;
+        }
+        if (button == "prev") {
+            if (currentRadioStation == minRadioStation) {
+                currentRadioStation = maxRadioStation;
+            } else currentRadioStation = currentRadioStation - 1;
+        }
+
+        if (currentRadioVolume > maxRadioVolume) {
+            return;
+        }
+        if (currentRadioVolume < minRadioVolume) {
+            return;
+        }
+        if (button == "+") {
+            if (currentRadioVolume < maxRadioVolume) {
+                currentRadioVolume = currentRadioVolume + 1;
+            }
+        }
+
+        if (button == "-") {
+            if (currentRadioVolume > minRadioVolume) {
+                currentRadioVolume = currentRadioVolume - 1;
+            }
+        }
+        this.currentRadioStation = currentRadioStation;
+        this.currentRadioVolume = currentRadioVolume;
+    }
 
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
-    void setCurrentRadioStation(int newCurrentRadioStation, String buttonStation) {
-
-        if (newCurrentRadioStation > 9) {
-            return;
-        }
-        if (newCurrentRadioStation < 0) {
-            return;
-        }
-        currentRadioStation = newCurrentRadioStation;
-
-        if (buttonStation == "next") {
-            if (currentRadioStation < 9) {
-                newCurrentRadioStation = currentRadioStation + 1;
-            } else newCurrentRadioStation = currentRadioStation - 9;
-        }
-        if (buttonStation == "prev") {
-            if (currentRadioStation > 0) {
-                newCurrentRadioStation = currentRadioStation - 1;
-            } else newCurrentRadioStation = currentRadioStation + 9;
-        }
-
-        currentRadioStation = newCurrentRadioStation;
-    }
-
-
     public int getCurrentRadioVolume() {
         return currentRadioVolume;
     }
-
-    void setCurrentRadioVolume(int newCurrentRadioVolume, String buttonVolume) {
-        if (newCurrentRadioVolume > 10) {
-            return;
-        }
-        if (newCurrentRadioVolume < 0) {
-            return;
-        }
-        currentRadioVolume = newCurrentRadioVolume;
-
-        if (buttonVolume == "+") {
-            if (currentRadioVolume < 10) {
-                currentRadioVolume = currentRadioVolume + 1;
-            }
-        }
-
-        if (buttonVolume == "-") {
-            if (currentRadioVolume > 0) {
-                currentRadioVolume = currentRadioVolume - 1;
-            }
-        }
-    }
-
-
 }
 
