@@ -1,8 +1,8 @@
 package home.radio;
 
 public class Radio {
-    int currentRadioStation;
-    int currentRadioVolume;
+    private int currentRadioStation;
+    private int currentRadioVolume;
     int radioStation = 10;
     int maxRadioStation;
     private int minRadioStation = 0;
