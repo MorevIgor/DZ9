@@ -1,65 +1,59 @@
 package home.radio;
 
 public class Radio {
-    int currentRadioStation;
-    int currentRadioVolume;
 
+    private int currentRadioStation;
+    private int currentRadioVolume;
+
+    public void next(){
+        if (currentRadioStation <9) {
+            currentRadioStation ++;
+        } else currentRadioStation = 0;
+    }
+
+    public void prev(){
+        if (currentRadioStation >0){
+            currentRadioStation --;
+        }else currentRadioStation=9;
+    }
+
+    public void plus() {
+        if (currentRadioVolume < 10) {
+            currentRadioVolume = currentRadioVolume + 1;
+        }
+    }
+
+    public  void minus() {
+        if (currentRadioVolume>0){
+            currentRadioVolume = currentRadioVolume -1;
+        }
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
-    void setCurrentRadioStation(int newCurrentRadioStation, String buttonStation) {
-
-        if (newCurrentRadioStation > 9) {
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if(currentRadioStation>9){
             return;
         }
-        if (newCurrentRadioStation < 0) {
+        if(currentRadioStation<0){
             return;
         }
-        currentRadioStation = newCurrentRadioStation;
-
-        if (buttonStation == "next") {
-            if (currentRadioStation < 9) {
-                newCurrentRadioStation = currentRadioStation + 1;
-            } else newCurrentRadioStation = currentRadioStation - 9;
-        }
-        if (buttonStation == "prev") {
-            if (currentRadioStation > 0) {
-                newCurrentRadioStation = currentRadioStation - 1;
-            } else newCurrentRadioStation = currentRadioStation + 9;
-        }
-
-        currentRadioStation = newCurrentRadioStation;
+        this.currentRadioStation = currentRadioStation;
     }
-
 
     public int getCurrentRadioVolume() {
         return currentRadioVolume;
     }
 
-    void setCurrentRadioVolume(int newCurrentRadioVolume, String buttonVolume) {
-        if (newCurrentRadioVolume > 10) {
+    public void setCurrentRadioVolume(int currentRadioVolume) {
+        if(currentRadioVolume>10){
             return;
         }
-        if (newCurrentRadioVolume < 0) {
+        if(currentRadioVolume<0){
             return;
         }
-        currentRadioVolume = newCurrentRadioVolume;
-
-        if (buttonVolume == "+") {
-            if (currentRadioVolume < 10) {
-                currentRadioVolume = currentRadioVolume + 1;
-            }
-        }
-
-        if (buttonVolume == "-") {
-            if (currentRadioVolume > 0) {
-                currentRadioVolume = currentRadioVolume - 1;
-            }
-        }
+        this.currentRadioVolume = currentRadioVolume;
     }
-
-
 }
-
